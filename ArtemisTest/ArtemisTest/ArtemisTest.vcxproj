@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{28BF5097-4D1E-4105-AAAD-6C987E99F79A}</ProjectGuid>
+    <RootNamespace>ArtemisTest</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\Artemis-Cpp;E:\Libraries\SFML-2.0\include;C:\Program Files %28x86%29\Visual Leak Detector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>E:\Libraries\SFML-2.0\lib;C:\Program Files %28x86%29\Visual Leak Detector\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-audio-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>E:/Libraries/SFML-2.0/include;../../Artemis-Cpp/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>E:/Libraries/SFML-2.0/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-system.lib;sfml-window.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Artemis-Cpp\BitSize.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\Component.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\ComponentMapper.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\ComponentType.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\ComponentTypeManager.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\DelayedEntityProcessingSystem.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\DelayedEntitySystem.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\Entity.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\EntityManager.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\EntityProcessingSystem.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\EntitySystem.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\GroupManager.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\ImmutableBag.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\SystemBitManager.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\SystemManager.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\TagManager.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\TypeInfoComparator.h" />
+    <ClInclude Include="..\..\Artemis-Cpp\World.h" />
+    <ClInclude Include="AngularSystem.h" />
+    <ClInclude Include="AngularVelComponent.h" />
+    <ClInclude Include="CollisionComponent.h" />
+    <ClInclude Include="CollisionSystem.h" />
+    <ClInclude Include="BeamComponent.h" />
+    <ClInclude Include="BeamSystem.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="EntityFactory.h" />
+    <ClInclude Include="MovementSystem.h" />
+    <ClInclude Include="PlayerComponent.h" />
+    <ClInclude Include="PlayerInputSystem.h" />
+    <ClInclude Include="RenderBoxSystem.h" />
+    <ClInclude Include="SATCollision.h" />
+    <ClInclude Include="SoundComponent.h" />
+    <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="TransformableComponent.h" />
+    <ClInclude Include="RenderComponent.h" />
+    <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="Utility.h" />
+    <ClInclude Include="VelocityComponent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Artemis-Cpp\Component.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\ComponentType.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\ComponentTypeManager.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\DelayedEntityProcessingSystem.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\DelayedEntitySystem.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\Entity.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\EntityManager.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\EntityProcessingSystem.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\EntitySystem.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\GroupManager.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\SystemBitManager.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\SystemManager.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\TagManager.cpp" />
+    <ClCompile Include="..\..\Artemis-Cpp\World.cpp" />
+    <ClCompile Include="AngularSystem.cpp" />
+    <ClCompile Include="CollisionSystem.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="BeamSystem.cpp" />
+    <ClCompile Include="EntityFactory.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MovementSystem.cpp" />
+    <ClCompile Include="PlayerInputSystem.cpp" />
+    <ClCompile Include="RenderBoxSystem.cpp" />
+    <ClCompile Include="RenderSystem.cpp" />
+    <ClCompile Include="SATCollision.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="Utility.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
