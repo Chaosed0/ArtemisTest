@@ -1,0 +1,3 @@
+[submodule "Artemis-Cpp"]
+	path = Artemis-Cpp
+	url = https://github.com/vinova/Artemis-Cpp.git
