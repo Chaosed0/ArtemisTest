@@ -44,7 +44,7 @@ artemis::Entity& EntityFactory::CreateBeam(artemis::World& world, const sf::Vect
 
 	beam.addComponent(new RenderComponent(rectShape));
 	beam.addComponent(new TransformableComponent(rectShape));
-	beam.addComponent(new BeamComponent(rectShape, sf::Vector2f(800,20)));
+	beam.addComponent(new BeamComponent(rectShape, sf::Vector2f(800,10)));
 	beam.addComponent(new CollisionComponent(rectShape->getLocalBounds(), false));
 	beam.addComponent(new AngularVelComponent(0.0f));
 	beam.refresh();
