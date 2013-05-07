@@ -32,7 +32,6 @@ void CollisionSystem::initialize()
 			float damage = damagePerSec * collisionSystem.world->getDelta();
 			float& health = b->getComponent<HealthComponent>()->health;
 			health -= damage;
-			printf("%g\n", health);
 			float shakeIntensity = (1-health/100) * maxShakeIntensity;
 			b->getComponent<TransformableComponent>()->transformable->setPosition(
 				b->getComponent<TransformableComponent>()->transformable->getPosition() +
