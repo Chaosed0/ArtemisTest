@@ -16,6 +16,8 @@ public:
 										   const sf::Vector2i& pointPos);
 
 	static artemis::Entity& CreateStaticTest(artemis::World& world, const sf::Vector2f& pos);
+
+	static artemis::Entity& CreateExplosion(artemis::World& world, const sf::Vector2f& pos);
 private:
 };
 

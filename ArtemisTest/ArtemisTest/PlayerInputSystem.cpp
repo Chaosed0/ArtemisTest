@@ -54,7 +54,8 @@ void PlayerInputSystem::processEntity(artemis::Entity &e) {
 		artemis::Entity& beam = EntityFactory::CreateBeam(*world, playerPos, mousePt);
 		beamTime = powerDownTime;
 		shootingBeam = true;
-	} else if(!mouseDown[playerMap->shootButton] && shootingBeam) {
+	}
+	if(!mouseDown[playerMap->shootButton] && shootingBeam) {
 		artemis::ImmutableBag<artemis::Entity*> * beamBag = 
 			world->getGroupManager()->getEntities(constants::beamGroup);
 
@@ -73,9 +74,7 @@ void PlayerInputSystem::processEntity(artemis::Entity &e) {
 
 	if(!shootingBeam && beamTime > sf::Time::Zero) {
 		beamTime -= sf::seconds(world->getDelta());
-	}
-
-	if(shootingBeam && magnitude(movement) != 0) {
+	} else if(shootingBeam && magnitude(movement) != 0) {
 		movement = movement/magnitude(movement)*playerSlowMoveSpeed;
 	}
 

@@ -13,6 +13,9 @@
 #include "BeamSystem.h"
 #include "Utility.h"
 #include "CollisionSystem.h"
+#include "DestroySystem.h"
+#include "AnimSystem.h"
+#include "ExpiresSystem.h"
 #include "SATCollision.h"
 
 #include "EntityFactory.h"
@@ -43,6 +46,9 @@ int main(int argc, char **argv)
 	RenderSystem * rendersys = (RenderSystem*)sm->setSystem(new RenderSystem(window));
 	//RenderBoxSystem * renderboxsys = (RenderBoxSystem*)sm->setSystem(new RenderBoxSystem(window));
 	CollisionSystem * collisionsys = (CollisionSystem*)sm->setSystem(new CollisionSystem());
+	DestroySystem * destroysys = (DestroySystem*)sm->setSystem(new DestroySystem());
+	AnimSystem * animatesys = (AnimSystem*)sm->setSystem(new AnimSystem());
+	ExpiresSystem * expiresys = (ExpiresSystem*)sm->setSystem(new ExpiresSystem());
     artemis::EntityManager * em = world.getEntityManager();
 
     sm->initializeAll();
@@ -73,11 +79,14 @@ int main(int argc, char **argv)
 			}
 		}
 
+		expiresys->process();
 		inputsys->process();
+		animatesys->process();
         movementsys->process();
 		angularsys->process();
 		beamsys->process();
 		collisionsys->process();
+		destroysys->process();
 
 		window.clear();
 		rendersys->process();

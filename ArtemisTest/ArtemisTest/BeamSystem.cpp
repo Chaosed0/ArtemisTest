@@ -38,6 +38,8 @@ void BeamSystem::processEntity(artemis::Entity &e) {
 
 	if(!beamMapper.get(e)->isFired && beamTimer > windupTime) {
 		beamMapper.get(e)->isFired = true;
+	} else if(beamMapper.get(e)->isFired) {
+		collisionMapper.get(e)->isCollidable = true;
 	}
 
 	if(!beamMapper.get(e)->isFired && !beamMapper.get(e)->hasPlayedSound) {
@@ -52,7 +54,7 @@ void BeamSystem::processEntity(artemis::Entity &e) {
 	//There should only ever be one player
 	artemis::Entity* player = world->getGroupManager()->getEntities(constants::playerGroup)->get(0);
 	sf::Vector2f playerPos = player->getComponent<TransformableComponent>()->transformable->getPosition();
-	rect->setPosition(playerPos);
+	rect->setPosition(sf::Vector2f(playerPos.x, playerPos.y-10));
 	rect->setFillColor(sf::Color(getRandom(200, 255), getRandom(150, 255), getRandom(50, 200)));
 	rect->setSize(sf::Vector2f(XFunction(beamSize.x, beamTimer),
 		YFunction(beamSize.y, beamTimer)));

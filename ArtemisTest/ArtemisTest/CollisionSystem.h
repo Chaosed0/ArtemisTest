@@ -33,10 +33,10 @@ private:
 class CollisionSystem::CollisionHandler
 {
 public:
-	CollisionHandler(artemis::World* world);
+	CollisionHandler(CollisionSystem& collisonSystem);
 	virtual void HandleCollision(artemis::Entity* a, artemis::Entity* b) = 0;
 protected:
-	artemis::World* world;
+	CollisionSystem& collisionSystem;
 };
 
 
@@ -44,10 +44,12 @@ class CollisionSystem::CollisionGroup
 {
 public:
 	CollisionGroup(artemis::ImmutableBag<artemis::Entity*>* entityGroup1,
-		artemis::ImmutableBag<artemis::Entity*>* entityGroup2, CollisionHandler* handler);
+		artemis::ImmutableBag<artemis::Entity*>* entityGroup2, CollisionHandler* handler,
+		CollisionSystem& collisionSystem);
 
-	CollisionGroup(CollisionGroup&& other)
-		: handler(std::move(other.handler))
+	CollisionGroup(CollisionGroup&& other) :
+		handler(std::move(other.handler)) ,
+		collisionSystem(collisionSystem)
 	{
 		entityGroup1 = other.entityGroup1;
 		entityGroup2 = other.entityGroup2;
@@ -60,6 +62,8 @@ private:
 	artemis::ImmutableBag<artemis::Entity*>* entityGroup1;
 	artemis::ImmutableBag<artemis::Entity*>* entityGroup2;
 	std::unique_ptr<CollisionHandler> handler;
+
+	CollisionSystem& collisionSystem;
 };
 
 #endif
